@@ -18,14 +18,14 @@
                         </div>
                         <div class="navbar-end">
                             <span class="navbar-item">
-                                <a class="button is-rounded is-info is-light">
+                                <a class="button is-rounded is-info is-light" @click="sign_up()">
                                     <span>
                                         Sign Up
                                     </span>
                                 </a>
                             </span>
                             <span class="navbar-item">
-                                <a class="button is-rounded is-link">
+                                <a class="button is-rounded is-link"  @click="sign_in()">
                                     <span>
                                         Sign In
                                     </span>
@@ -50,3 +50,22 @@
     </section>
 </div>
 </template>
+
+<script>
+
+export default {
+	methods: {
+        sign_up: function() {
+            this.$http.get('/').then(
+                succ => {
+                    console.log(succ.data);
+                },
+                error => {console.log(error)}
+            );
+        },
+        sign_in: function(){
+        
+        }
+    }
+}
+</script>
