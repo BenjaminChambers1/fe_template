@@ -56,7 +56,7 @@
 export default {
 	methods: {
         sign_up: function() {
-            this.$http.get('/').then(
+            this.$http.get('/api').then(
                 succ => {
                     console.log(succ.data);
                 },
