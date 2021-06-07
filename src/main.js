@@ -6,8 +6,8 @@ import axios from 'axios';
 import 'bulma';
 
 Vue.prototype.$http = axios.create({
-  baseURL: 'http://localhost:3000/',
-  timeout: 10000,
+  baseURL: 'http://18.216.160.160/api/',
+  timeout: 3000,
   withCredentials: true
 });
 
