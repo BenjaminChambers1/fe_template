@@ -43,9 +43,11 @@
                     Home Page
                 </p>
                 <p class="subtitle">
-                    <!-- Subtitle -->
                 </p>
             </div>
+        </div>
+        <div class="button" @click="get_users()">
+            get users
         </div>
     </section>
 </div>
@@ -56,7 +58,10 @@
 export default {
 	methods: {
         sign_up: function() {
-            this.$http.get('/').then(
+            this.$http.post('/users/sign-up', {
+                username: 'benji',
+                password: 'password'
+            }).then(
                 succ => {
                     console.log(succ.data);
                 },
@@ -64,7 +69,27 @@ export default {
             );
         },
         sign_in: function(){
-        
+            this.$http.post('/users/log-in', {
+                username: 'benji',
+                password: 'password'
+            }).then(
+                succ => {
+                    console.log(succ.data);
+                    if (succ.data.access_token) {
+                        this.$store.state.access_token = succ.data.access_token;
+                        console.log(this.$store.state.access_token);
+                    }
+                },
+                error => {console.log(error)}
+            );
+        },
+        get_users: function(){
+            this.$http.get('/users/get-users').then(
+                succ => {
+                    console.log(succ.data);
+                },
+                error => {console.log(error)}
+            );
         }
     }
 }
