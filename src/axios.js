@@ -1,7 +1,7 @@
 import axios from 'axios';
 import store from './store';
 
-let test = true;
+let test = false;
 let myaxios = axios.create({
     baseURL: test ? 'http://localhost:3000' : 'http://18.216.160.160/api/',
     timeout: 3000,
