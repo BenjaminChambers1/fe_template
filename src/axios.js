@@ -4,8 +4,7 @@ import store from './store';
 let test = false;
 let myaxios = axios.create({
     baseURL: test ? 'http://localhost:3000' : 'http://18.216.160.160/api/',
-    timeout: 3000,
-    withCredentials: true
+    timeout: 3000
 });
 
 myaxios.interceptors.request.use(
